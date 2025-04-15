@@ -1,27 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import BreakReminder from './breakPage';
-import { stringify } from 'querystring';
+import React, { useState, useEffect } from "react";
+import BreakReminder from "./breakPage";
+import { stringify } from "querystring";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function ClientBreakReminder() {
-  const [showBreakReminder, setShowBreakReminder] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setShowBreakReminder(true);
-    }, 10); // Display the reminder every 20 minutes
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleClose = () => {
-    setShowBreakReminder(false);
-    console.log("Break reminder is visible: fdsfd ", showBreakReminder)
-  };
-
   return (
-    <div>
-          <BreakReminder isVisible={showBreakReminder} onClose={handleClose} />
+    <div className="w-auto h-auto flex flex-col items-center justify-center">
+      <Alert className="hover:bg-blue-100">
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>
+          You can add components to your app using the cli.
+        </AlertDescription>
+      </Alert>
     </div>
   );
 }
